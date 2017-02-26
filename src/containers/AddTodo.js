@@ -11,8 +11,9 @@ let AddTodo = ({dispatch}) => {
                 if (!input.value.trim()) {
                     return;
                 }
+                let params = '?title='+encodeURIComponent(input.value);
                 dispatch(dispatch => {
-                    fetch('http://rap.taobao.org/mockjsdata/14394/postList.json?title='+input.value, {
+                    fetch('http://rap.taobao.org/mockjsdata/14394/postList.json'+params, {
                         method: "GET"
                         // method: "POST",
                         // body: JSON.stringify({
