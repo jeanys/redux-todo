@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from "react-redux";
 import { toggleTodo } from "../actions";
 import { deleteTodo } from "../actions";
+import { fetchList } from "../actions";
 import List from "../components/List";
 
 const getVisibleTodos = (todos, filter) => {
@@ -25,7 +26,20 @@ const  mapDispatchToProps = (dispatch) => {
             dispatch(toggleTodo(id));
         },
         handleDelete: (id) => {
-            dispatch(deleteTodo(id))
+            dispatch(deleteTodo(id));
+        },
+        fetchData: () => {
+            dispatch(dispatch => {
+                fetch('http://rap.taobao.org/mockjsdata/14394/getList.json')
+                .then(res => {
+                    return res.json();
+                })
+                .then(data => {
+                    if (data.status) {
+                        dispatch(fetchList(data.data));
+                    }
+                })
+            })
         }
     }
 }

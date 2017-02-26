@@ -11,7 +11,23 @@ let AddTodo = ({dispatch}) => {
                 if (!input.value.trim()) {
                     return;
                 }
-                dispatch(addTodo(input.value));
+                dispatch(dispatch => {
+                    fetch('http://rap.taobao.org/mockjsdata/14394/postList.json?title='+input.value, {
+                        method: "GET"
+                        // method: "POST",
+                        // body: JSON.stringify({
+                        //     title: input.value
+                        // })
+                    })
+                    .then(res => {
+                        return res.json();
+                    })
+                    .then(data => {
+                        if (data.status) {
+                            dispatch(addTodo(data.id,data.title));
+                        }
+                    })
+                });
                 input.value = "";
             }}>
                 <input ref={(node) => input = node} />

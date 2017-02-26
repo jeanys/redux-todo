@@ -1,9 +1,9 @@
-let nextTodoId = 0;
+// let nextTodoId = 0;
 
-export const addTodo = (text) => {
+export const addTodo = (id,text) => {
     return {
         type: "ADD_TODO",
-        id: nextTodoId++,
+        id,
         text
     }
 }
@@ -26,5 +26,12 @@ export const deleteTodo = (id) => {
     return {
         type: "DELETE_TODO",
         id
+    }
+}
+
+export const fetchList = (data) => {
+    return {
+        type: "FETCH_LIST",
+        data
     }
 }

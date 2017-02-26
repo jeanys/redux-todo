@@ -1,13 +1,18 @@
 import React, { Component }  from "react";
 import ReactDOM  from "react-dom";
+import ReduxThunk from 'redux-thunk';
 import { Provider } from "react-redux";
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
 import { AppContainer } from 'react-hot-loader'
 import todoApp from "./src/reducers";
 import App from "./src/components/App";
 import './src/styles/main.scss';
 
-let store = createStore(todoApp);
+let store = createStore(
+    todoApp,
+    {},
+    applyMiddleware(ReduxThunk)
+);
 
 ReactDOM.render(
     <AppContainer>
