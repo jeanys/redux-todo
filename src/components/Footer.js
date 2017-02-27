@@ -1,20 +1,21 @@
 import React from 'react';
 import FilterLink from '../containers/FilterLink';
+import { Link } from 'react-router';
 
 const Footer = () => (
     <p className="todo-filter">
         筛选：
-        <FilterLink filter="SHOW_ALL">
+        <Link to="/">
             全部
-        </FilterLink>
+        </Link>
         {" "}
-        <FilterLink filter="SHOW_ACTIVE">
+        <Link to="/active">
             活跃的
-        </FilterLink>
+        </Link>
         {" "}
-        <FilterLink filter="SHOW_COMPLETE">
+        <Link to="/complete">
             已完成
-        </FilterLink>
+        </Link>
     </p>
 )
 

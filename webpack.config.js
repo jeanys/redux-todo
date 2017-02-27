@@ -35,7 +35,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: __dirname + '/index.tmpl.html'
+            template: path.join(__dirname, '/index.tmpl.html')
         }),
         new ExtractTextPlugin('main.css', {allChunks: true}),
         new webpack.HotModuleReplacementPlugin()
