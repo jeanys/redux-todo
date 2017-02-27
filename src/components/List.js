@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Item from './Item';
 
-class List extends React.Component {
+class List extends React {
     constructor(props) {
         super(props);
     }
