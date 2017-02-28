@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Item from './Item';
 
-class List extends React {
+class List extends Component {
     constructor(props) {
         super(props);
     }
