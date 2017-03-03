@@ -4,7 +4,7 @@ import ReactDOM  from "react-dom";
 import ReduxThunk from 'redux-thunk';
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
-import { Router, Route, browserHistory } from 'react-router';
+import { Router, Route, hashHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { AppContainer } from 'react-hot-loader';
 
@@ -19,7 +19,7 @@ let store = createStore(
     applyMiddleware(ReduxThunk, logger)
 );
 
-const history = syncHistoryWithStore(browserHistory, store);
+const history = syncHistoryWithStore(hashHistory, store);
 
 const routes = {
     path: '/(:filter)',

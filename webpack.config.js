@@ -38,7 +38,10 @@ module.exports = {
             template: path.join(__dirname, '/index.tmpl.html')
         }),
         new ExtractTextPlugin('main.css', {allChunks: true}),
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': JSON.stringify('development')
+        })
     ],
     devServer: {
         contentBase: './dist',
